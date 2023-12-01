@@ -1,11 +1,9 @@
-use std::{collections::HashMap, hash, ops::Add};
+use std::collections::HashMap;
 
 advent_of_code::solution!(1);
 
 pub fn part_one(input: &str) -> Option<u32> {
-    let result = &advent_of_code::template::read_file("inputs", DAY);
-
-    let mut lines = result.split("\n");
+    let mut lines = input.split("\n");
 
     let mut total: u32 = 0;
 
@@ -37,8 +35,6 @@ pub fn part_one(input: &str) -> Option<u32> {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    let result = &advent_of_code::template::read_file_part("inputs", DAY, 2);
-
     let map = HashMap::from([
         ("one", "1"),
         ("two", "2"),
@@ -51,7 +47,7 @@ pub fn part_two(input: &str) -> Option<u32> {
         ("nine", "9"),
     ]);
 
-    let mut lines = result.split("\n");
+    let mut lines = input.split("\n");
 
     let mut total: u32 = 0;
 
@@ -111,18 +107,14 @@ mod tests {
     #[test]
     fn test_part_one() {
         let result = part_one(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(142));
     }
 
     #[test]
     fn test_part_two() {
-        let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        let result = part_two(&advent_of_code::template::read_file_part(
+            "examples", DAY, 2,
+        ));
+        assert_eq!(result, Some(281));
     }
 }
-
-// let z = letter.parse::<i32>().unwrap();
-// if letter.is_digit(10) {
-// let x = letter.to_string().as_str();
-// first = i32::from();
-// }
